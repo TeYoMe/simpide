@@ -89,7 +89,7 @@ endfunction
 
 function! virtualenv#statusline()
     if exists('g:virtualenv_name')
-        return 'e:'.substitute(g:virtualenv_stl_format, '\C%n', g:virtualenv_name, 'g')
+        return 'envs:'.substitute(g:virtualenv_stl_format, '\C%n', g:virtualenv_name, 'g')
     else
         return ''
     endif
