@@ -90,7 +90,7 @@ endfunction
 
 function! s:MyStatusLine()
 	let l:mode = "%1* %{g:currentmode[mode()]} %*"
-	let l:envs = '%#envs_name#%{virtualenv#statusline()}'
+	let l:envs = "%#envs_name# 'envs:'.%{virtualenv#statusline()}.' ' "
 	let l:fs = '%3* %{FileSize(@%)} %*'
 	let l:fp = '%4* %{FilePath()} %*'
 	let l:branch = '%6*%{Fugitive()}%*'
@@ -100,8 +100,8 @@ function! s:MyStatusLine()
 	let l:m_r_f = '%7* %m%r%y %*'
 	let l:pos = '%8* %l/%L:%c |'
 	let l:enc = " %{''.(&fenc!=''?&fenc:&enc).''} | %{(&bomb?\",BOM\":\"\")}"
-	let l:ff = '%{&ff} | %*'
-	let l:pct = '%9*%p%% %*'
+	let l:ff = '%{&ff} %*'
+	let l:pct = '%9* %p%% %*'
 
 	return l:mode.l:envs.'%<'.l:fp.l:fs.l:branch.l:gutter.l:ale_e.l:ale_w.
         \ '%='.l:m_r_f.l:pos.l:enc.l:ff.l:pct
